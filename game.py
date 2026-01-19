@@ -1,12 +1,23 @@
-# Aplikasi game secret number
+# Game tebak angka
+# Angka rahasia: 987
 
-secret_number = 777
-guess_number = int(input("Masukkan Tebak Angka:"))
+secret = 987
+attempts = 0
 
-while guess_number != secret_number
-    print("Tebakan salah, Silahkan coba lagi")
-    print("Anda terjebak dalam perputaran abadi")   #modify
-    guess_number = int(input("Masukkan Tebak Angka:"))
+print("Selamat datang di game tebak angka!")
+print("Angka rahasia antara 1 dan 1000.")
 
-print("Selamat.. !!, Tebakan anda benar!!")
-print("Kode ini saya buat di codespace")
+while True:
+    try:
+        guess = int(input("Masukkan tebakan Anda: "))
+        attempts += 1
+        if guess == secret:
+            print(f"Selamat! Anda menebak benar dalam {attempts} percobaan.")
+            break
+        elif guess < secret:
+            print("Terlalu kecil. Coba lagi!")
+        else:
+            print("Terlalu besar. Coba lagi!")
+    except ValueError:
+        print("Masukkan angka yang valid.")
+
